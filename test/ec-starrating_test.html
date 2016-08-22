@@ -1,0 +1,32 @@
+<!doctype html>
+
+<html>
+  <head>
+    <title>ec-starrating test</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1, user-scalable=yes">
+    <script src="../../webcomponentsjs/webcomponents-lite.js"></script>
+    <script src="../../web-component-tester/browser.js"></script>
+
+    <link rel="import" href="../ec-starrating.html">
+  </head>
+  <body>
+
+    <test-fixture id="basic">
+      <template>
+        <ec-starrating></ec-starrating>
+      </template>
+    </test-fixture>
+
+    <script>
+      suite('ec-starrating', function() {
+
+        test('instantiating the element works', function() {
+          var element = fixture('basic');
+          assert.equal(element.is, 'ec-starrating');
+        });
+
+      });
+    </script>
+  </body>
+</html>

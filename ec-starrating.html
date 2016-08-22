@@ -1,0 +1,63 @@
+<link rel="import" href="../polymer/polymer.html">
+<link rel="import" href="../iron-icon/iron-icon.html">
+
+<!--
+`ec-starrating`
+Show stars for ratings.
+
+@demo demo/index.html 
+-->
+
+<dom-module id="ec-starrating">
+  <template>
+    <style>
+      :host {
+        display: block;
+      }
+      iron-icon.star {
+          --iron-icon-width: 16px;
+          --iron-icon-height: 16px;
+          color: var(--paper-amber-500);
+      }
+      iron-icon.star-blah { 
+          color: var(--paper-grey-300); 
+      }
+    </style>
+    <template is="dom-repeat" items="[[stars]]" as="star">
+        <iron-icon class$="[[star.xlass]]" icon="[[star.icon]]"></iron-icon>
+    </template>
+  </template>
+
+  <script>
+    Polymer({
+
+      is: 'ec-starrating',
+
+      properties: {
+        range: {
+          type: Number,
+          value: 5,
+        },
+        rating: {
+          type: Number,
+          value: 0,
+        },
+        stars: {
+          computed: 'computeStars(range, rating)'
+        },
+      },
+      computeStars(range, rating) {
+          var stars = [];
+          fRating = Math.floor(rating);
+          cRating = Math.ceil(rating);
+          for (var i = 1; i <= Math.ceil(range); i++) {
+              stars.push({
+                  icon: i <= fRating || i > cRating ? "star" : "star-half",
+                  xlass: i <= cRating ? 'star' : 'star star-blah',
+              });
+          }
+          return stars;
+      },
+    });
+  </script>
+</dom-module>
