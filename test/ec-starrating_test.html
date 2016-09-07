@@ -18,14 +18,44 @@
       </template>
     </test-fixture>
 
+    <test-fixture id="twoandhalfoutoffour">
+      <template>
+        <ec-starrating range="4" rating="2.5"></ec-starrating>
+      </template>
+    </test-fixture>
+
     <script>
       suite('ec-starrating', function() {
+        var basic,
+            twoandhalfoutoffour;
 
-        test('instantiating the element works', function() {
-          var element = fixture('basic');
-          assert.equal(element.is, 'ec-starrating');
+        setup('<ec-starrating>', function() {
+            basic = fixture('basic');
+            twoandhalfoutoffour = fixture('twoandhalfoutoffour');
         });
 
+        test('instantiating the element works', function() {
+          assert.equal(basic.is, 'ec-starrating');
+        });
+
+        test('starrating with range 4 and rating 2.5', function() {
+          assert.equal(twoandhalfoutoffour.range, 4);
+          assert.equal(twoandhalfoutoffour.rating, 2.5);
+          assert.equal(twoandhalfoutoffour.stars[0].icon, 'star');
+          assert.equal(twoandhalfoutoffour.stars[0].xlass, 'star');
+          assert.equal(twoandhalfoutoffour.stars[1].icon, 'star');
+          assert.equal(twoandhalfoutoffour.stars[1].xlass, 'star');
+          assert.equal(twoandhalfoutoffour.stars[2].icon, 'star-half');
+          assert.equal(twoandhalfoutoffour.stars[2].xlass, 'star');
+          assert.equal(twoandhalfoutoffour.stars[3].icon, 'star');
+          assert.equal(twoandhalfoutoffour.stars[3].xlass, 'star star-blah');
+          /*assert.equal(twoandhalfoutoffour.stars, [
+            {icon: 'star', xlass: 'star'},
+            {icon: 'star', xlass: 'star'},
+            {icon: 'star-half', xlass: 'star'},
+            {icon: 'star', xlass: 'star star-blah'},
+          ]);*/
+        });
       });
     </script>
   </body>
