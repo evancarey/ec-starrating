@@ -1,0 +1,53 @@
+<!doctype html>
+<html>
+  <head>
+    <title>ec-starrating demo</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1, user-scalable=yes">
+    <script src="../../webcomponentsjs/webcomponents-lite.js"></script>
+
+    <link rel="import" href="../../iron-demo-helpers/demo-pages-shared-styles.html">
+    <link rel="import" href="../../iron-demo-helpers/demo-snippet.html">
+
+    <link rel="import" href="../ec-starrating.html">
+
+    <style is="custom-style" include="demo-pages-shared-styles">
+    </style>
+  </head>
+  <body>
+
+    <div class="vertical-section-container centered">
+      <h3>Basic ec-starrating Demo - defaults</h3>
+      <demo-snippet>
+        <template>
+          <ec-starrating></ec-starrating>
+        </template>
+      </demo-snippet>
+      <h3>5 ec-starrating Demo</h3>
+      <demo-snippet>
+        <template>
+          <ec-starrating rating="5"></ec-starrating>
+        </template>
+      </demo-snippet>
+      <h3>2.5 ec-starrating Demo</h3>
+      <demo-snippet>
+        <template>
+          <ec-starrating rating="2.5"></ec-starrating>
+        </template>
+      </demo-snippet>
+      <h3>0 ec-starrating Demo</h3>
+      <demo-snippet>
+        <template>
+          <ec-starrating rating="0"></ec-starrating>
+        </template>
+      </demo-snippet>
+      <h3>8.5/10 ec-starrating Demo</h3>
+      <demo-snippet>
+        <template>
+          <ec-starrating rating="8.5" range="10"></ec-starrating>
+        </template>
+      </demo-snippet>
+    </div>
+
+  </body>
+</html>
