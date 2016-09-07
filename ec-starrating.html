@@ -46,7 +46,7 @@ Show stars for ratings.
           computed: 'computeStars(range, rating)'
         },
       },
-      computeStars(range, rating) {
+      computeStars: function(range, rating) {
         var stars = [];
         fRating = Math.floor(rating);
         cRating = Math.ceil(rating);
