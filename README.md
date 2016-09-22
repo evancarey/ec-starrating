@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/evancarey/ec-starrating.svg?branch=master)](https://travis-ci.org/evancarey/ec-starrating)
+
 # \<ec-starrating\>
 
 Show stars for ratings.
