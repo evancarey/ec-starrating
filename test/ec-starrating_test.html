@@ -24,6 +24,12 @@
       </template>
     </test-fixture>
 
+    <test-fixture id="twoandhalfoutofzero">
+      <template>
+        <ec-starrating range="0" rating="2.5"></ec-starrating>
+      </template>
+    </test-fixture>
+
     <script>
       suite('ec-starrating', function() {
         var basic,
@@ -32,6 +38,7 @@
         setup('<ec-starrating>', function() {
             basic = fixture('basic');
             twoandhalfoutoffour = fixture('twoandhalfoutoffour');
+            twoandhalfoutofzero = fixture('twoandhalfoutofzero');
         });
 
         test('instantiating the element works', function() {
@@ -55,6 +62,12 @@
             {icon: 'star-half', xlass: 'star'},
             {icon: 'star', xlass: 'star star-blah'},
           ]);*/
+        });
+
+        test('starrating with range 0 and rating 2.5', function() {
+          assert.equal(twoandhalfoutofzero.range, 0);
+          assert.equal(twoandhalfoutofzero.rating, 2.5);
+          assert.equal(twoandhalfoutofzero.stars.length, 0);
         });
       });
     </script>
