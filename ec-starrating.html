@@ -14,19 +14,28 @@ Show stars for ratings.
     <style>
       :host {
         display: block;
+        cursor: default;
       }
       iron-icon.star {
-        --iron-icon-width: 16px;
-        --iron-icon-height: 16px;
-        color: var(--paper-amber-500);
+        --iron-icon-width: var(--ec-starrating-width);
+        --iron-icon-height: var(--ec-starrating-height);
+        color: var(--ec-starrating-color, var(--paper-amber-500, amber));
+        transition: all 1.2s ease-out;
+        transform: rotate(0deg);
       }
-      iron-icon.star-blah { 
-        color: var(--paper-grey-300); 
+      .wrapper:hover iron-icon.star{
+        transition: 0.4s;
+        transform: rotate(360deg);
+      }
+      iron-icon.notvis { 
+        opacity: 0;
       }
     </style>
-    <template is="dom-repeat" items="[[stars]]" as="star">
-      <iron-icon class$="[[star.xlass]]" icon="[[star.icon]]"></iron-icon>
-    </template>
+    <div class="wrapper">
+        <template is="dom-repeat" items="[[stars]]" as="star">
+          <iron-icon class$="[[star.xlass]]" icon="[[star.icon]]"></iron-icon>
+        </template>
+    </div>
   </template>
 
   <script>
@@ -43,18 +52,26 @@ Show stars for ratings.
                     value: 0,
                 },
                 stars: {
-                    computed: '_computeStars(range, rating)'
+                    computed: '_computeStars(range, rating, icon)'
+                },
+                icon: {
+                    type: String,
+                    value: 'star'
                 }
             };
         }
-        _computeStars(range, rating) {
+        _computeStars(range, rating, icon) {
             var stars = [];
-            var fRating = Math.floor(rating);
-            var cRating = Math.ceil(rating);
             for (var i = 1; i <= Math.ceil(range); i++) {
                 stars.push({
-                    icon: i <= fRating || i > cRating ? "star" : "star-half",
-                    xlass: i <= cRating ? 'star' : 'star star-blah',
+                    icon: i <= Math.floor(rating) ? icon : i <= Math.ceil(rating) ? (icon + '-half') : (icon + '-border'),
+                    xlass: 'star'
+                });
+            }
+            if (!stars.length) {
+                stars.push({
+                    icon: icon,
+                    xlass: 'star notvis'
                 });
             }
             return stars;

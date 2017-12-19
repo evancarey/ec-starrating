@@ -15,6 +15,10 @@
 
     <custom-style>
       <style is="custom-style" include="demo-pages-shared-styles">
+        ec-starrating {
+            --ec-starrating-width: 32px;
+            --ec-starrating-height: 32px;
+        }
       </style>
     </custom-style>
   </head>
@@ -54,6 +58,12 @@
       <demo-snippet>
         <template>
           <ec-starrating rating="2.5" range="0"></ec-starrating>
+        </template>
+      </demo-snippet>
+      <h3>4/5 ec-starrating with favorite (no halves) icon Demo</h3>
+      <demo-snippet>
+        <template>
+          <ec-starrating rating="4" icon="favorite"></ec-starrating>
         </template>
       </demo-snippet>
     </div>
