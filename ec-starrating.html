@@ -17,8 +17,8 @@ Show stars for ratings.
         cursor: default;
       }
       iron-icon.star {
-        --iron-icon-width: var(--ec-starrating-width);
-        --iron-icon-height: var(--ec-starrating-height);
+        --iron-icon-width: var(--ec-starrating-width, 24px);
+        --iron-icon-height: var(--ec-starrating-height, 24px);
         color: var(--ec-starrating-color, var(--paper-amber-500, amber));
         transition: all 1.2s ease-out;
         transform: rotate(0deg);
